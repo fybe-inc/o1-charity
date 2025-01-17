@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI-Link</title>
+
   <style>
     /* --------------------------------
        Reset / Basic
@@ -56,7 +57,6 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      /* 背景に柔らかいグラデーションアニメーション */
       background: linear-gradient(-45deg, #ffffff, #f5f5f5, #ffffff, #eaeaea);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
@@ -111,7 +111,6 @@
       align-items: center;
       justify-content: space-between;
       z-index: 999;
-      /* ほんのり白背景＋シャドウ */
       background: rgba(255, 255, 255, 0.8);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       backdrop-filter: blur(5px);
@@ -146,24 +145,6 @@
       background: #333;
       transition: 0.3s;
     }
-    @media screen and (max-width: 768px) {
-      nav .menu {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1rem 2rem;
-        transition: 0.3s;
-        transform: translateX(100%);
-      }
-      nav .menu.open {
-        transform: translateX(0);
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
 
     /* --------------------------------
        Main Sections
@@ -197,6 +178,7 @@
       line-height: 1.8;
       color: #555;
     }
+
     /* カード等のスタイル例 */
     .cards {
       display: flex;
@@ -226,13 +208,6 @@
     .card p {
       color: #555;
       line-height: 1.6;
-    }
-
-    @media screen and (max-width: 768px) {
-      .cards {
-        flex-direction: column;
-        align-items: center;
-      }
     }
 
     /* --------------------------------
@@ -282,6 +257,102 @@
     }
     footer p {
       font-size: 0.9rem;
+    }
+
+    /* --------------------------------
+       MEDIA QUERIES
+       (レスポンシブ強化)
+    ----------------------------------- */
+
+    /* 画面幅 992px 以下：ノートPC・小型タブレットなど */
+    @media screen and (max-width: 992px) {
+      nav h2 {
+        font-size: 1.3rem;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+      section {
+        padding: 4rem 1rem;
+      }
+      .cards {
+        gap: 1.5rem;
+      }
+      .card {
+        width: 280px;
+      }
+    }
+
+    /* 画面幅 768px 以下：タブレット・モバイル */
+    @media screen and (max-width: 768px) {
+      /* ナビゲーション：ハンバーガー有効化 */
+      .hamburger {
+        display: flex;
+      }
+      nav .menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem 2rem;
+        transition: 0.3s;
+        transform: translateX(100%);
+      }
+      nav .menu.open {
+        transform: translateX(0);
+      }
+
+      /* ヒーローセクションの文字サイズ調整 */
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+
+      /* セクション余白やカードレイアウト */
+      section {
+        padding: 3rem 1rem;
+      }
+      .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      .card {
+        width: 90%;
+        max-width: 350px;
+      }
+    }
+
+    /* 画面幅 576px 以下：スマホ・小型端末 */
+    @media screen and (max-width: 576px) {
+      nav h2 {
+        font-size: 1.2rem;
+      }
+      nav {
+        padding: 0.8rem 1rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 0.95rem;
+      }
+      .cards {
+        gap: 1.5rem;
+      }
+      .card h3 {
+        font-size: 1.2rem;
+      }
+      footer p {
+        font-size: 0.8rem;
+      }
     }
 
   </style>
@@ -439,14 +510,16 @@
     <h2>Special Article</h2>
     <p>
       以下は、2025年1月10日に公開された note 記事
-      「AIによりプログラミングというスキルが陳腐化されていくこの世界で『僕たちはどう生きるか』」全文です。
+      「AIによりプログラミングというスキルが陳腐化されていくこの世界で『僕たちはどう生きるか』」です。
       我々 FYBE および代表 内藤の価値観や想いとして，
       当サイトでもシェアさせていただきます。ぜひご覧ください。
     </p>
     <p>
-      （本記事は <a href="https://note.com/konaito/n/n2f8cc400fdbb" target="_blank" rel="noopener noreferrer" style="color: #0077b6;">
-      こちら（note）</a> で公開されています。）
+      （本記事は <a href="https://note.com/konaito/n/n2f8cc400fdbb" 
+         target="_blank" rel="noopener noreferrer" style="color: #0077b6;">
+         こちら（note）</a> で公開されています。）
     </p>
+    <!-- 実際の記事全文を掲載する場合は、さらに段落ごとに <p> ... </p> で追加してください -->
   </section>
 
   <!-- Contact Section -->
@@ -456,8 +529,11 @@
       投資に関するご相談や、大学側との連携、技術的なパートナーシップをお考えの方は下記よりご連絡ください。
     </p>
     <p>
-      <strong>Email:</strong> <a href="mailto:ceo@fybe.jp" style="color: #0077b6;">ceo@fybe.jp</a><br>
-      <strong>お問い合わせフォーム:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8KW1Xr3PQkfwcnpQ_AQy213fMLWVpZLz8xDUyPW_lcfbhVg/viewform" style="color: #0077b6;">Google Form</a>
+      <strong>Email:</strong> 
+      <a href="mailto:ceo@fybe.jp" style="color: #0077b6;">ceo@fybe.jp</a><br>
+      <strong>お問い合わせフォーム:</strong> 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8KW1Xr3PQkfwcnpQ_AQy213fMLWVpZLz8xDUyPW_lcfbhVg/viewform" 
+         style="color: #0077b6;">Google Form</a>
     </p>
   </section>
 
@@ -474,5 +550,6 @@
       menu.classList.toggle('open');
     });
   </script>
+
 </body>
 </html>
